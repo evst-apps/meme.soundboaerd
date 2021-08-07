@@ -34,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
         tabs.removeAllTabs();
         try {
             for(String s : getAssets().list("Tabs")){
-                TabLayout.Tab t = tabs.newTab().setText(s);
+                TabLayout.Tab t = tabs.newTab();
+                t.setText(s.substring(s.indexOf(".") +1, s.length()));
+                t.setTag(s);
                 tabs.addTab(t);
             }
         } catch (IOException e) {
@@ -46,10 +48,9 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     FlexboxLayout flex = findViewById(R.id.flex);
                     flex.removeAllViews();
-                    for(String s : getAssets().list("Tabs/" + tab.getText())){
-                        Item item = new Item(flex.getContext(), s, "Tabs/" + tab.getText());
-                        flex.addView(item.btn
-                        );
+                    for(String s : getAssets().list("Tabs/" + tab.getTag())){
+                        Item item = new Item(flex.getContext(), s, "Tabs/" + tab.getTag());
+                        flex.addView(item.btn);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -62,9 +63,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabUnselected(TabLayout.Tab tab) {}
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
