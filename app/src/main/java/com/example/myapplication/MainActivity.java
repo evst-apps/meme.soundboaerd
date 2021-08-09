@@ -1,7 +1,10 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.bluetooth.le.AdvertisingSetCallback;
+import android.content.Context;
 import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Build;
@@ -15,7 +18,10 @@ import android.widget.TextView;
 import com.google.android.flexbox.FlexboxLayout;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.RequestConfiguration;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
@@ -31,6 +37,7 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity {
 
     private AdView mAdView;
+    private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +52,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+        AdRequest adRequest1 = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest1);
+
+        LoadAd();
 
         FlexboxLayout flex = findViewById(R.id.flex);
         flex.removeAllViews();
@@ -67,6 +76,13 @@ public class MainActivity extends AppCompatActivity {
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             public void Select (TabLayout.Tab tab){
                 try {
+                    if (mInterstitialAd != null) {
+                        mInterstitialAd.show(MainActivity.this);
+                        LoadAd();
+                    } else {
+                        Log.d("TAG", "The interstitial ad wasn't ready yet.");
+                    }
+
                     FlexboxLayout flex = findViewById(R.id.flex);
                     flex.removeAllViews();
                     for(String s : getAssets().list("Tabs/" + tab.getTag())){
@@ -94,6 +110,28 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout.Tab tab = tabs.getTabAt(0);
         tab.select();
+    }
+
+    private void LoadAd(){
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i("Ad", "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.i("Ad", loadAdError.getMessage());
+                        mInterstitialAd = null;
+                    }
+                });
     }
 
 }
