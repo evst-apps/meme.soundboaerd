@@ -30,7 +30,7 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AdView adView;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +44,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        MobileAds.setRequestConfiguration(
-                new RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList("ABCDEF012345"))
-                        .build());
-
-        adView = findViewById(R.id.adView);
+        mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        mAdView.loadAd(adRequest);
 
         FlexboxLayout flex = findViewById(R.id.flex);
         flex.removeAllViews();
