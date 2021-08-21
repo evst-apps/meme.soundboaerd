@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -101,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void LoadAd(){
         AdRequest adRequest = new AdRequest.Builder().build();
-
         InterstitialAd.load(this,"ca-app-pub-7640237869653935/7048678096", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
