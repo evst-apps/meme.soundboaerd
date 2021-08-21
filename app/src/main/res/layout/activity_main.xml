@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -18,10 +17,9 @@
         app:tabMode="scrollable">
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/sampleTab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sample" />
+            android:text="@string/sample" />
     </com.google.android.material.tabs.TabLayout>
 
     <ScrollView
@@ -45,7 +43,7 @@
                 app:alignContent="flex_start"
                 app:alignItems="flex_start"
                 app:flexWrap="wrap"
-                app:justifyContent="space_around"></com.google.android.flexbox.FlexboxLayout>
+                app:justifyContent="space_around" />
         </LinearLayout>
     </ScrollView>
 
@@ -57,6 +55,6 @@
         app:adUnitId="ca-app-pub-7640237869653935/7977303301"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

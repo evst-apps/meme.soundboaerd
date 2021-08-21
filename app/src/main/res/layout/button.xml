@@ -6,5 +6,5 @@
     android:height="100dp"
     android:insetLeft="6dp"
     android:insetRight="6dp"
-    android:text="Sample"
-    android:textSize="10dp"></Button>
+    android:text="@string/sample"
+    android:textSize="11sp" />

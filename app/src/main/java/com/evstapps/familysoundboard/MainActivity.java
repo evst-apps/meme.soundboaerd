@@ -10,33 +10,26 @@ import com.google.android.flexbox.FlexboxLayout;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.material.tabs.TabLayout;
 
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AdView mAdView;
     private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
+        MobileAds.initialize(this, initializationStatus -> {
         });
 
-        mAdView = findViewById(R.id.adView);
+        AdView mAdView = findViewById(R.id.adView);
 
         AdRequest adRequest1 = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest1);
@@ -51,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             for(String s : getAssets().list("Tabs")){
                 TabLayout.Tab t = tabs.newTab();
-                t.setText(s.substring(s.indexOf(".") +1, s.length()));
+                t.setText(s.substring(s.indexOf(".") +1));
                 t.setTag(s);
                 tabs.addTab(t);
             }
@@ -95,7 +88,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TabLayout.Tab tab = tabs.getTabAt(0);
-        tab.select();
+        if (tab != null) {
+            tab.select();
+        }
     }
 
     private void LoadAd(){

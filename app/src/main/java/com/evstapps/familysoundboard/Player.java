@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Player {
 
-    public static MediaPlayer mp = new MediaPlayer();
+    public static final MediaPlayer mp = new MediaPlayer();
 
     public static void Play (Context c, String p){
         try {
