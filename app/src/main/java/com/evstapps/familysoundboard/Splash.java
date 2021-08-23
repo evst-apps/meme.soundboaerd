@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 
 public class Splash extends AppCompatActivity {
 
@@ -12,11 +11,22 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        Handler handler = new Handler();
-        handler.postDelayed(() -> {
+        findViewById(R.id.playBtn).setOnClickListener(view -> {
             Intent i = new Intent(Splash.this, MainActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(i);
-        }, 5000);
+        });
+        findViewById(R.id.policyBtn).setOnClickListener(view -> {
+            Intent i = new Intent(Splash.this, PrivacyPolicy.class);
+            startActivity(i);
+        });
+        findViewById(R.id.shareBtn).setOnClickListener(view -> {
+            Intent intent =new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Family Soundboard");
+            intent.putExtra(Intent.EXTRA_TEXT,"Check out this cool app https://play.google.com/store/apps/details?id=com.evstapps.familysoundboard");
+            intent.setType("text/plain");
+            startActivity(intent);
+        });
+
     }
 }

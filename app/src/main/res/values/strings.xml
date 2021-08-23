@@ -2,4 +2,7 @@
     <string name="app_name">Family Soundboard</string>
     <string name="sample">Sample</string>
     <string name="splash_image">Splash Image</string>
+    <string name="play">Play</string>
+    <string name="share">Share</string>
+    <string name="privacy_policy">Privacy Policy</string>
 </resources>
