@@ -11,10 +11,14 @@
         android:id="@+id/tabs"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/tab_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tabMode="scrollable">
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/black"
+        app:tabIndicatorColor="@color/white">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -40,6 +44,7 @@
                 android:id="@+id/flex"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/pink1"
                 app:alignContent="flex_start"
                 app:alignItems="flex_start"
                 app:flexWrap="wrap"
