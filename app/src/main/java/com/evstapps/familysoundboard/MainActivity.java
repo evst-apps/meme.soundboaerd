@@ -10,6 +10,7 @@ import com.google.android.flexbox.FlexboxLayout;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.initialization.AdapterStatus;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.material.tabs.TabLayout;
@@ -17,6 +18,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.gms.ads.MobileAds;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,12 +31,25 @@ public class MainActivity extends AppCompatActivity {
         MobileAds.initialize(this, initializationStatus -> {
         });
 
-        AdView mAdView = findViewById(R.id.adView);
+        MobileAds.initialize(this, initializationStatus -> {
+            Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
+            for (String adapterClass : statusMap.keySet()) {
+                AdapterStatus status = statusMap.get(adapterClass);
+                assert status != null;
+                Log.d("MyApp", String.format(
+                        "Adapter name: %s, Description: %s, Latency: %d",
+                        adapterClass, status.getDescription(), status.getLatency()));
+            }
 
-        AdRequest adRequest1 = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest1);
+            AdView mAdView = findViewById(R.id.adView);
 
-        LoadAd();
+            AdRequest adRequest1 = new AdRequest.Builder().build();
+            mAdView.loadAd(adRequest1);
+
+            LoadAd();
+        });
+
+
 
         FlexboxLayout flex = findViewById(R.id.flex);
         flex.removeAllViews();
