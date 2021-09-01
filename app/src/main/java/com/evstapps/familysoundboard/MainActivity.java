@@ -18,6 +18,8 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.gms.ads.MobileAds;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -77,9 +79,14 @@ public class MainActivity extends AppCompatActivity {
 
                     FlexboxLayout flex = findViewById(R.id.flex);
                     flex.removeAllViews();
+                    ArrayList<Item> items = new ArrayList<Item>();
                     for(String s : getAssets().list("Tabs/" + tab.getTag())){
                         Item item = new Item(flex.getContext(), s, "Tabs/" + tab.getTag());
-                        flex.addView(item.btn);
+                        items.add(item);
+                    }
+                    Collections.sort(items);
+                    for (Item i : items) {
+                        flex.addView(i.btn);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

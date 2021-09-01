@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import com.google.android.material.button.MaterialButton;
 
 
-public class Item {
+public class Item implements Comparable<Item> {
     public final MaterialButton btn;
     private final String path;
     @SuppressLint("InflateParams")
@@ -17,5 +17,10 @@ public class Item {
         btn = (MaterialButton) LayoutInflater.from(context).inflate(R.layout.button, null);
         btn.setText(name);
         btn.setOnClickListener(view -> Player.Play(context, path));
+    }
+
+    @Override
+    public int compareTo(Item item) {
+        return (int) (this.btn.getText().toString().compareTo(item.btn.getText().toString()));
     }
 }
