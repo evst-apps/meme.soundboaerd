@@ -79,14 +79,14 @@ public class MainActivity extends AppCompatActivity {
 
                     FlexboxLayout flex = findViewById(R.id.flex);
                     flex.removeAllViews();
-                    ArrayList<Item> items = new ArrayList<Item>();
+                    ArrayList<Item> items = new ArrayList<>();
                     for(String s : getAssets().list("Tabs/" + tab.getTag())){
                         Item item = new Item(flex.getContext(), s, "Tabs/" + tab.getTag());
                         items.add(item);
                     }
                     Collections.sort(items);
                     for (Item i : items) {
-                        flex.addView(i.btn);
+                        flex.addView(i.view);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
