@@ -16,11 +16,12 @@
         android:clickable="false"
         android:gravity="center"
         android:hapticFeedbackEnabled="true"
-        android:padding="5dp"
+        android:padding="10dp"
         android:text="@string/sample"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="11sp"
+        android:textStyle="bold"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="2dp"
         tools:layout_editor_absoluteY="2dp" />

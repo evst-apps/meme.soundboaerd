@@ -1,25 +1,26 @@
 <ripple
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/white">
+    android:color="@color/black">
     <item
         android:top="10dp"
         android:bottom="10dp"
-        android:right="0dp"
-        android:left="0dp"
+        android:right="2dp"
+        android:left="2dp"
         >
         <shape android:shape="rectangle">
             <corners
-                android:topLeftRadius="45dp"
-                android:bottomLeftRadius="45dp"
-                android:bottomRightRadius="45dp"
-                android:topRightRadius="45dp">
+                android:topLeftRadius="10dp"
+                android:bottomLeftRadius="10dp"
+                android:bottomRightRadius="10dp"
+                android:topRightRadius="10dp">
+
 
             </corners>
             <stroke
-                android:width="2dp"
-                android:color="@color/white"
+                android:width="3dp"
+                android:color="@color/black"
                 />
-            <solid android:color="@color/black" />
+            <solid android:color="@color/blue2" />
         </shape>
     </item>
 </ripple>
