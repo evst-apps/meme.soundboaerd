@@ -9,16 +9,18 @@ import android.widget.TextView;
 
 public class Item implements Comparable<Item> {
     public final View view;
-    private final String path;
     private final TextView textView;
+    @SuppressWarnings("CommentedOutCode")
     @SuppressLint("InflateParams")
-    public Item(Context context, String n, String p) {
+    public Item(Context ctx, String n, String p) {
         String name = n.substring(0, n.lastIndexOf('.'));
-        path = p + "/" + n;
-        view = LayoutInflater.from(context).inflate(R.layout.activity_button, null);
+        @SuppressWarnings("unused") String path = p + "/" + n;
+        view = LayoutInflater.from(ctx).inflate(R.layout.activity_button, null);
         textView = view.findViewById(R.id.textView);
         textView.setText(name);
-        view.setOnClickListener(view -> Player.Play(context, path));
+        //MainActivity ma = (MainActivity) ctx;
+        //view.setOnClickListener(view -> Player.Play(ctx, path));
+        //view.setOnLongClickListener(view -> ma.SetRingtone(path));
     }
 
     @Override
