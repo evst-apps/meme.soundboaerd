@@ -17,6 +17,6 @@ public class PrivacyPolicy extends AppCompatActivity {
         WebView wv = findViewById(R.id.web);
         WebSettings webSettings = wv.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        wv.loadUrl("http://evstapps.com/privacy.html");
+        wv.loadUrl("http://evstapps.com/privacy");
     }
 }
