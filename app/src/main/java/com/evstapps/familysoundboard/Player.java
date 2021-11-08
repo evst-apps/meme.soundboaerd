@@ -10,6 +10,7 @@ public class Player {
 
     public static final MediaPlayer mp = new MediaPlayer();
 
+    @SuppressWarnings("unused")
     public static void Play (Context c, String p){
         try {
             mp.reset();
