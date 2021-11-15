@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Family.Soundboard/app/src/main/res/drawable/button_background.xml" value="0.1" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Family.Soundboard/app/src/main/res/drawable/header_background.xml" value="0.1" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Family.Soundboard/app/src/main/res/drawable/tab_background.xml" value="0.1" />
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Family.Soundboard/app/src/main/res/layout/activity_button.xml" value="0.1" />
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Family.Soundboard/app/src/main/res/layout/activity_fragment.xml" value="0.1" />
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Family.Soundboard/app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -20,15 +22,10 @@
         <entry key="..\:/Users/dalee/StudioProjects/Family.Soundboard/app/src/main/res/layout/activity_button.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/dalee/StudioProjects/Family.Soundboard/app/src/main/res/layout/activity_privacy_policy.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/dalee/StudioProjects/Family.Soundboard/app/src/main/res/layout/activity_splash.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/pauls/AndroidStudioProjects/Family.Soundboard/app/src/main/res/drawable/button_background.xml" value="0.21770833333333334" />
-        <entry key="..\:/Users/pauls/AndroidStudioProjects/Family.Soundboard/app/src/main/res/drawable/header_background.xml" value="0.25" />
         <entry key="..\:/Users/pauls/AndroidStudioProjects/Family.Soundboard/app/src/main/res/drawable/tab_background.xml" value="0.22135416666666666" />
-        <entry key="..\:/Users/pauls/AndroidStudioProjects/Family.Soundboard/app/src/main/res/layout/activity_fragment.xml" value="0.1" />
         <entry key="..\:/Users/pauls/AndroidStudioProjects/Family.Soundboard/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/pauls/AndroidStudioProjects/Family.Soundboard/app/src/main/res/layout/activity_splash.xml" value="0.25" />
-        <entry key="..\:/Users/pauls/AndroidStudioProjects/Family.Soundboard/app/src/main/res/layout/activity_test.xml" value="0.18" />
         <entry key="..\:/Users/pauls/AndroidStudioProjects/Family.Soundboard/app/src/main/res/layout/button.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/pauls/AndroidStudioProjects/Family.Soundboard/app/src/main/res/layout/layout_tab.xml" value="0.2015625" />
         <entry key="..\:/Users/pauls/AndroidStudioProjects/Family.Soundboard/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/pauls/AndroidStudioProjects/Family.Soundboard/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/pauls/AndroidStudioProjects/My.Application/app/src/main/res/layout/activity_main.xml" value="0.1" />

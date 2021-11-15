@@ -3,6 +3,7 @@ package com.evstapps.familysoundboard;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ public class ItemContainer {
     public final String title;
     public final ArrayList<Item> items;
     public final View tab;
+    public Drawable bg;
 
     @SuppressLint("InflateParams")
     public ItemContainer(String t, Context ctx) {

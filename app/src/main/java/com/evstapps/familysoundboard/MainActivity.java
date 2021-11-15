@@ -97,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
                     flex.removeAllViews();
                     ArrayList<Item> items = new ArrayList<>();
                     for(String s : getAssets().list("Tabs/" + tab.getTag())){
-                        Item item = new Item(flex.getContext(), s, "Tabs/" + tab.getTag());
-                        items.add(item);
+                        //Item item = new Item(flex.getContext(), s, "Tabs/" + tab.getTag());
+                        //items.add(item);
                     }
                     Collections.sort(items);
                     for (Item i : items) {

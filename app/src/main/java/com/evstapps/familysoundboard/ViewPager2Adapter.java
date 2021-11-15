@@ -29,7 +29,8 @@ class ViewPager2Adapter extends RecyclerView.Adapter<ViewPager2Adapter.ViewHolde
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        for(Item item : itemContainers.get(position).items){
+        ItemContainer ic = itemContainers.get(position);
+        for(Item item : ic.items){
             if(item.view.getParent() != null) {
                 ((ViewGroup)item.view.getParent()).removeView(item.view);
             }
