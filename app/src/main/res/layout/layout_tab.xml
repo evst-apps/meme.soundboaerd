@@ -6,10 +6,10 @@
 
     <ImageView
         android:id="@+id/tabImage"
-        android:layout_width="50dp"
+        android:layout_width="72dp"
         android:layout_height="50dp"
-        android:scaleType="centerInside"
-        android:contentDescription="@string/icon" />
+        android:contentDescription="@string/icon"
+        android:scaleType="centerInside" />
 
     <TextView
         android:id="@+id/tabText"

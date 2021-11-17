@@ -7,10 +7,22 @@
     android:focusable="true"
     android:background="@drawable/button_background">
 
+    <ImageView
+        android:id="@+id/btnIcon"
+        android:layout_width="15dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/logo_trans"
+        android:scaleType="centerInside"/>
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/btnText"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_margin="10dp"
         android:clickable="false"
         android:gravity="center"
         android:hapticFeedbackEnabled="true"
@@ -19,7 +31,6 @@
         android:textColor="@color/white"
         android:textSize="11sp"
         android:textStyle="bold"
-        android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

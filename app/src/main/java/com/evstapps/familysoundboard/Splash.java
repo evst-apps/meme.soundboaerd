@@ -10,13 +10,13 @@ public class Splash extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.layout_splash);
         findViewById(R.id.playBtn).setOnClickListener(view -> {
             Intent i = new Intent(Splash.this, MainActivity.class);
             startActivity(i);
         });
         findViewById(R.id.policyBtn).setOnClickListener(view -> {
-            Intent i = new Intent(Splash.this, PrivacyPolicy.class);
+            Intent i = new Intent(Splash.this, Policy.class);
             startActivity(i);
         });
         findViewById(R.id.shareBtn).setOnClickListener(view -> {

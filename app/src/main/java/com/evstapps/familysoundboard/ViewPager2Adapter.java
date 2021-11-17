@@ -1,12 +1,15 @@
 package com.evstapps.familysoundboard;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.adapter.FragmentViewHolder;
+
+import java.util.List;
 
 public class ViewPager2Adapter extends FragmentStateAdapter {
 
@@ -17,13 +20,10 @@ public class ViewPager2Adapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        FolderFragment folderFragment = App.assetFolders.get(position).folderFragment;
-        if (folderFragment == null) {
-            folderFragment = new FolderFragment();
-            Bundle bundle = new Bundle();
-            bundle.putInt("position", position);
-            folderFragment.setArguments(bundle);
-        }
+        FolderFragment folderFragment = new FolderFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("position", position);
+        folderFragment.setArguments(bundle);
         return folderFragment;
     }
 
@@ -31,6 +31,5 @@ public class ViewPager2Adapter extends FragmentStateAdapter {
     public int getItemCount() {
         return App.assetFolders.size();
     }
-
 
 }

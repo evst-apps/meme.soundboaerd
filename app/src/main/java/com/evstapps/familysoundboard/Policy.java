@@ -8,12 +8,12 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 @SuppressLint("SetJavaScriptEnabled")
-public class PrivacyPolicy extends AppCompatActivity {
+public class Policy extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_privacy_policy);
+        setContentView(R.layout.layout_policy);
         WebView wv = findViewById(R.id.web);
         WebSettings webSettings = wv.getSettings();
         webSettings.setJavaScriptEnabled(true);
