@@ -1,40 +1,37 @@
 package com.evstapps.familysoundboard;
 
+
+import android.app.Application;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class AssetList {
-    public ArrayList<AssetFolder> assetFolders;
+public class App extends Application {
 
-      AssetList(Test test){
+    public static ArrayList<AssetFolder> assetFolders;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
         assetFolders = new ArrayList<>();
         try {
-            for(String tab : test.getAssets().list("Tabs")){
+            for (String tabName : getAssets().list("Tabs")) {
                 AssetFolder assetFolder = new AssetFolder();
-                assetFolder.name = tab;
+                assetFolder.name = tabName;
                 assetFolder.assetItems = new ArrayList<>();
 
-                InputStream icon_is = test.getAssets().open("Tabs/" + tab + "/" + "icon.png");
-                View tabView = test.getLayoutInflater().inflate(R.layout.layout_tab, null);
-                ImageView imageView = tabView.findViewById(R.id.tabImage);
-                TextView textView = tabView.findViewById(R.id.tabText);
-                imageView.setImageBitmap(BitmapFactory.decodeStream(icon_is));
-                textView.setText(assetFolder.name);
-                assetFolder.tabView = tabView;
+                InputStream icon_is = getAssets().open("Tabs/" + tabName + "/" + "icon.png");
+                assetFolder.tabIcon = BitmapFactory.decodeStream(icon_is);
                 icon_is.close();
 
-                InputStream bg_is = test.getAssets().open("Tabs/" + tab + "/" + "bg.png");
+                InputStream bg_is = getAssets().open("Tabs/" + tabName + "/" + "bg.png");
                 assetFolder.bgImage = Drawable.createFromStream(bg_is, null);
                 bg_is.close();
 
-                for(String name : test.getAssets().list("Tabs/" + tab)){
+                for (String name : getAssets().list("Tabs/" + tabName)) {
                     if (name.contains(".mp3")) {
                         AssetItem assetItem = new AssetItem();
                         assetItem.name = name;

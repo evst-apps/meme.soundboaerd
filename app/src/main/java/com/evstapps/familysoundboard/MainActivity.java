@@ -1,44 +1,10 @@
 package com.evstapps.familysoundboard;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
-import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
-import android.media.RingtoneManager;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.provider.Settings;
-import android.util.Log;
-
-import com.google.android.flexbox.FlexboxLayout;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.initialization.AdapterStatus;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
-import com.google.android.material.tabs.TabLayout;
-
-import com.google.android.gms.ads.MobileAds;
-
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.channels.FileChannel;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Map;
-
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "CommentedOutCode"})
 public class MainActivity extends AppCompatActivity {
+    /*
 
     private InterstitialAd mInterstitialAd;
 
@@ -227,5 +193,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    */
 
 }

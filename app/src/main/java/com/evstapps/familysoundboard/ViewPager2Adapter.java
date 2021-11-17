@@ -1,53 +1,36 @@
 package com.evstapps.familysoundboard;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.app.Activity;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.google.android.flexbox.FlexboxLayout;
+public class ViewPager2Adapter extends FragmentStateAdapter {
 
-import java.util.ArrayList;
-
-class ViewPager2Adapter extends RecyclerView.Adapter<ViewPager2Adapter.ViewHolder> {
-
-    private final Context ctx;
-    ViewPager2Adapter(Context ctx) {
-        this.ctx = ctx;
+    public ViewPager2Adapter(@NonNull FragmentActivity fragmentActivity) {
+        super(fragmentActivity);
     }
-    public final ArrayList<ItemContainer> itemContainers = new ArrayList<>();
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(ctx).inflate(R.layout.activity_fragment, parent, false);
-        return new ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ItemContainer ic = itemContainers.get(position);
-        for(Item item : ic.items){
-            if(item.view.getParent() != null) {
-                ((ViewGroup)item.view.getParent()).removeView(item.view);
-            }
-            holder.flexboxLayout.addView(item.view);
+    public Fragment createFragment(int position) {
+        FolderFragment folderFragment = App.assetFolders.get(position).folderFragment;
+        if (folderFragment == null) {
+            folderFragment = new FolderFragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt("position", position);
+            folderFragment.setArguments(bundle);
         }
+        return folderFragment;
     }
 
     @Override
     public int getItemCount() {
-        return itemContainers.size();
+        return App.assetFolders.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        final FlexboxLayout flexboxLayout;
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            flexboxLayout = itemView.findViewById(R.id.flex);
-        }
-    }
+
 }
