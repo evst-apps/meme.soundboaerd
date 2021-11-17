@@ -22,7 +22,7 @@ public class ItemContainer {
         tab = LayoutInflater.from(ctx).inflate(R.layout.layout_tab, null);
         title = t.substring(t.indexOf('.') + 1);
         items = new ArrayList<>();
-        TextView text = tab.findViewById(R.id.text1);
+        TextView text = tab.findViewById(R.id.tabText);
         text.setText(title);
     }
 

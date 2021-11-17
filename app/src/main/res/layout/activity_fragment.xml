@@ -23,10 +23,8 @@
                 android:id="@+id/flex"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:alignContent="flex_start"
-                app:alignItems="flex_start"
                 app:flexWrap="wrap"
-                app:justifyContent="space_around" />
+                app:justifyContent="center" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
