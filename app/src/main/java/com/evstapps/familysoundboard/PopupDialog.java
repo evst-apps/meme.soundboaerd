@@ -33,6 +33,7 @@ public class PopupDialog extends Dialog {
         button.setOnClickListener(view -> {
             App.assetFolders.get(0).assetItems.add(assetItem);
             Test.viewPager2AdapterTest.notifyItemChanged(0);
+            App.saveFavorites();
             this.dismiss();
         });
     }
