@@ -30,8 +30,17 @@ public class PopupDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.layout_dialog);
         Button button = findViewById(R.id.dialogBtn1);
+        if (App.assetFolders.get(0).assetItems.contains(assetItem)){
+            button.setText("Remove from Favorites");
+        } else {
+            button.setText("Add to Favorites");
+        }
         button.setOnClickListener(view -> {
-            App.assetFolders.get(0).assetItems.add(assetItem);
+            if (App.assetFolders.get(0).assetItems.contains(assetItem)){
+                App.assetFolders.get(0).assetItems.remove(assetItem);
+            } else {
+                App.assetFolders.get(0).assetItems.add(assetItem);
+            }
             Test.viewPager2AdapterTest.notifyItemChanged(0);
             App.saveFavorites();
             this.dismiss();
