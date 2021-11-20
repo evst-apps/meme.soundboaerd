@@ -41,7 +41,7 @@ public class PopupDialog extends Dialog {
             } else {
                 App.assetFolders.get(0).assetItems.add(assetItem);
             }
-            Test.viewPager2AdapterTest.notifyItemChanged(0);
+            Test.viewPager2.setAdapter(Test.viewPager2.getAdapter());
             App.saveFavorites();
             this.dismiss();
         });

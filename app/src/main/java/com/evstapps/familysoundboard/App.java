@@ -25,14 +25,14 @@ import java.util.Collections;
 public class App extends Application {
 
     public static ArrayList<AssetFolder> assetFolders;
-    private static Context context;
+    private static File filesDir;
 
     @SuppressLint("InflateParams")
     @Override
     public void onCreate() {
         super.onCreate();
         assetFolders = new ArrayList<>();
-        context = this;
+        filesDir = this.getFilesDir();
         AssetFolder assetFolderF = new AssetFolder();
         assetFolderF.tabName = "0.Favorites";
         assetFolderF.name = "Favorites";
@@ -126,7 +126,7 @@ public class App extends Application {
 
     public static void saveFavorites(){
         try {
-            File dir = new File(context.getFilesDir(), "EVSTApps");
+            File dir = new File(filesDir, "EVSTApps");
             File file = new File(dir, "favorites.txt");
             FileOutputStream fOut = new FileOutputStream(file);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fOut));

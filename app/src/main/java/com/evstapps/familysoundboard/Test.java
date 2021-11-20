@@ -11,7 +11,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 public class Test extends AppCompatActivity {
 
-    public static ViewPager2Adapter viewPager2AdapterTest;
+    public static ViewPager2 viewPager2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +21,9 @@ public class Test extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.layout_test);
 
-        ViewPager2 viewPager2 = findViewById(R.id.pager);
-        viewPager2AdapterTest = new ViewPager2Adapter(this);
-        viewPager2.setAdapter(viewPager2AdapterTest);
+        viewPager2 = findViewById(R.id.pager);
+        ViewPager2Adapter viewPager2Adapter = new ViewPager2Adapter(this);
+        viewPager2.setAdapter(viewPager2Adapter);
 
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         new TabLayoutMediator(tabLayout, viewPager2, (tab, position) -> tab.setCustomView(App.assetFolders.get(position).tabView)).attach();

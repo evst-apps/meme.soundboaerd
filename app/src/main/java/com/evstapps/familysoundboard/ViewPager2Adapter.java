@@ -32,4 +32,9 @@ public class ViewPager2Adapter extends FragmentStateAdapter {
         return App.assetFolders.size();
     }
 
+    @Override
+    public long getItemId(int position) {
+        return App.assetFolders.get(position).name.hashCode();
+    }
+
 }
