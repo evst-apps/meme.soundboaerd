@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
@@ -29,13 +30,24 @@ public class PopupDialog extends Dialog {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.layout_dialog);
-        Button button = findViewById(R.id.dialogBtn1);
+        View faveBtn = findViewById(R.id.favBtn);
+        TextView faveBtnText = faveBtn.findViewById(R.id.btnText);
+        faveBtnText.setText("Add to Favorites");
+
+        View ringtoneBtn = findViewById(R.id.ringtoneBtn);
+        TextView ringtoneBtnText = ringtoneBtn.findViewById(R.id.btnText);
+        ringtoneBtnText.setText("Set as Ringtone");
+
+        View notificationBtn = findViewById(R.id.notificationBtn);
+        TextView notificationBtnText = notificationBtn.findViewById(R.id.btnText);
+        notificationBtnText.setText("Set as Notification");
+
         if (App.assetFolders.get(0).assetItems.contains(assetItem)){
-            button.setText("Remove from Favorites");
+            faveBtnText.setText("Remove from Favorites");
         } else {
-            button.setText("Add to Favorites");
+            faveBtnText.setText("Add to Favorites");
         }
-        button.setOnClickListener(view -> {
+        faveBtn.setOnClickListener(view -> {
             if (App.assetFolders.get(0).assetItems.contains(assetItem)){
                 App.assetFolders.get(0).assetItems.remove(assetItem);
             } else {
