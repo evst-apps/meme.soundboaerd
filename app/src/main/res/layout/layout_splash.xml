@@ -4,63 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink1"
-    tools:context=".Splash"
-    tools:ignore="Overdraw">
+    android:background="@drawable/header_background"
+    tools:context=".Splash">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#C586C8"
+        android:layout_height="300dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:contentDescription="@string/splash_image"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073"
-        app:srcCompat="@drawable/splash" />
+        app:srcCompat="@drawable/logo_trans"
+        tools:ignore="ImageContrastCheck" />
 
-    <com.google.android.material.button.MaterialButton
+    <include
         android:id="@+id/playBtn"
-        android:layout_width="120dp"
+        layout="@layout/layout_splash_button"
+        android:layout_width="150dp"
         android:layout_height="70dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="100dp"
-        android:text="@string/play"
-        android:textColor="@color/white"
-        app:backgroundTint="@color/blue1"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="@color/black"
-        app:strokeWidth="3dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
+    <include
         android:id="@+id/shareBtn"
-        android:layout_width="120dp"
+        layout="@layout/layout_splash_button"
+        android:layout_width="150dp"
         android:layout_height="70dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="100dp"
-        android:text="@string/share"
-        android:textColor="@color/white"
-        app:backgroundTint="@color/blue1"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:strokeColor="@color/black"
-        app:strokeWidth="3dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
+    <include
         android:id="@+id/policyBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="@string/privacy_policy"
-        android:textColor="@color/white"
-        app:backgroundTint="@color/blue1"
+        layout="@layout/layout_splash_button"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="@color/black"
-        app:strokeWidth="3dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

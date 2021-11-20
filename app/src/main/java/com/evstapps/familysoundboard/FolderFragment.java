@@ -2,7 +2,6 @@ package com.evstapps.familysoundboard;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,7 +25,7 @@ public class FolderFragment extends Fragment {
         AssetFolder assetFolder = App.assetFolders.get(this.getArguments().getInt("position"));
         FlexboxLayout flexboxLayout = view.findViewById(R.id.flex);
         for (AssetItem assetItem : assetFolder.assetItems) {
-            View btnView = getActivity().getLayoutInflater().inflate(R.layout.layout_button, null);
+            View btnView = getActivity().getLayoutInflater().inflate(R.layout.layout_item_button, null);
             //btnView.setBackground(assetFolder.bgImage);
             TextView btnText = btnView.findViewById(R.id.btnText);
             ImageView btnIcon = btnView.findViewById(R.id.btnIcon);
