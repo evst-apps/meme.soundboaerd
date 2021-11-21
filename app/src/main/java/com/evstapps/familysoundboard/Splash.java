@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
@@ -23,7 +22,7 @@ public class Splash extends AppCompatActivity {
         TextView playBtnText = playBtn.findViewById(R.id.btnText);
         playBtnText.setText("Play");
         playBtn.setOnClickListener(view -> {
-            Intent i = new Intent(Splash.this, Test.class);
+            Intent i = new Intent(Splash.this, MainActivity.class);
             startActivity(i);
         });
 

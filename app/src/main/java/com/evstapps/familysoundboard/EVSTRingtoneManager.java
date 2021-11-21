@@ -20,13 +20,13 @@ import java.nio.channels.FileChannel;
 
 public class EVSTRingtoneManager {
 
-    private static Context ctx;
+    private Context ctx;
 
     EVSTRingtoneManager(Context ctx) {
         this.ctx = ctx;
     }
 
-    public static void SetAsRingtoneOrNotification(String assetFilePath, int type) {
+    public void SetAsRingtoneOrNotification(String assetFilePath, int type) {
         if (!Settings.System.canWrite(ctx)) {
             Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
             ctx.startActivity(intent);

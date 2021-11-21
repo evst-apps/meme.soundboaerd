@@ -33,6 +33,7 @@ public class FolderFragment extends Fragment {
             btnText.setText(assetItem.name);
             btnView.setOnClickListener(view1 -> {
                 Player.Play(getActivity(), assetItem.filePath);
+                MainActivity.adManager.ShowAdd();
             });
             btnView.setOnLongClickListener(view12 -> {
                 new PopupDialog(getActivity(), assetItem).show();

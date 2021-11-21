@@ -1,19 +1,14 @@
 package com.evstapps.familysoundboard;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.media.RingtoneManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-
-import com.google.android.material.tabs.TabLayout;
 
 
 public class PopupDialog extends Dialog {
@@ -54,16 +49,16 @@ public class PopupDialog extends Dialog {
             } else {
                 App.assetFolders.get(0).assetItems.add(assetItem);
             }
-            Test.viewPager2.setAdapter(Test.viewPager2.getAdapter());
+            MainActivity.viewPager2.setAdapter(MainActivity.viewPager2.getAdapter());
             App.saveFavorites();
             this.dismiss();
         });
         ringtoneBtn.setOnClickListener(view -> {
-            EVSTRingtoneManager.SetAsRingtoneOrNotification(assetItem.filePath, RingtoneManager.TYPE_RINGTONE);
+            MainActivity.evstRingtoneManager.SetAsRingtoneOrNotification(assetItem.filePath, RingtoneManager.TYPE_RINGTONE);
             this.dismiss();
         });
         notificationBtn.setOnClickListener(view -> {
-            EVSTRingtoneManager.SetAsRingtoneOrNotification(assetItem.filePath, RingtoneManager.TYPE_NOTIFICATION);
+            MainActivity.evstRingtoneManager.SetAsRingtoneOrNotification(assetItem.filePath, RingtoneManager.TYPE_NOTIFICATION);
             this.dismiss();
         });
     }
