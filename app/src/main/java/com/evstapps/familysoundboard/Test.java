@@ -21,6 +21,8 @@ public class Test extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.layout_test);
 
+        new EVSTRingtoneManager(this);
+
         viewPager2 = findViewById(R.id.pager);
         ViewPager2Adapter viewPager2Adapter = new ViewPager2Adapter(this);
         viewPager2.setAdapter(viewPager2Adapter);

@@ -3,6 +3,7 @@ package com.evstapps.familysoundboard;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -55,6 +56,14 @@ public class PopupDialog extends Dialog {
             }
             Test.viewPager2.setAdapter(Test.viewPager2.getAdapter());
             App.saveFavorites();
+            this.dismiss();
+        });
+        ringtoneBtn.setOnClickListener(view -> {
+            EVSTRingtoneManager.SetAsRingtoneOrNotification(assetItem.filePath, RingtoneManager.TYPE_RINGTONE);
+            this.dismiss();
+        });
+        notificationBtn.setOnClickListener(view -> {
+            EVSTRingtoneManager.SetAsRingtoneOrNotification(assetItem.filePath, RingtoneManager.TYPE_NOTIFICATION);
             this.dismiss();
         });
     }
