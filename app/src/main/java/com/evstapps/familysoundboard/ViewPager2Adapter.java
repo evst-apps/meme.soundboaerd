@@ -4,23 +4,21 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.adapter.FragmentViewHolder;
-
-import java.util.List;
 
 public class ViewPager2Adapter extends FragmentStateAdapter {
 
-    public ViewPager2Adapter(@NonNull FragmentActivity fragmentActivity) {
-        super(fragmentActivity);
+    private final MainActivity mainActivity;
+
+    public ViewPager2Adapter(MainActivity mainActivity) {
+        super(mainActivity);
+        this.mainActivity = mainActivity;
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        FolderFragment folderFragment = new FolderFragment();
+        FolderFragment folderFragment = new FolderFragment(mainActivity);
         Bundle bundle = new Bundle();
         bundle.putInt("position", position);
         folderFragment.setArguments(bundle);

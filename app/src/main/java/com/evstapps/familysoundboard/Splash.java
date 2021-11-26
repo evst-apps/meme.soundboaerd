@@ -20,7 +20,7 @@ public class Splash extends AppCompatActivity {
 
         View playBtn = findViewById(R.id.playBtn);
         TextView playBtnText = playBtn.findViewById(R.id.btnText);
-        playBtnText.setText("Play");
+        playBtnText.setText(R.string.Play);
         playBtn.setOnClickListener(view -> {
             Intent i = new Intent(Splash.this, MainActivity.class);
             startActivity(i);
@@ -28,7 +28,7 @@ public class Splash extends AppCompatActivity {
 
         View policyBtn = findViewById(R.id.policyBtn);
         TextView policyBtnText = policyBtn.findViewById(R.id.btnText);
-        policyBtnText.setText("Privacy Policy");
+        policyBtnText.setText(R.string.PrivacyPolicy);
         policyBtn.setOnClickListener(view -> {
             Intent i = new Intent(Splash.this, Policy.class);
             startActivity(i);
@@ -36,7 +36,7 @@ public class Splash extends AppCompatActivity {
 
         View shareBtn = findViewById(R.id.shareBtn);
         TextView shareBtnText = shareBtn.findViewById(R.id.btnText);
-        shareBtnText.setText("Share");
+        shareBtnText.setText(R.string.Share);
         shareBtn.setOnClickListener(view -> {
             Intent intent =new Intent();
             intent.setAction(Intent.ACTION_SEND);

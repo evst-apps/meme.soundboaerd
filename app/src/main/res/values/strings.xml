@@ -1,10 +1,19 @@
 <resources>
     <string name="app_name">Family Soundboard</string>
+    <string name="Ad_App_ID">ca-app-pub-7640237869653935~2916548316</string>
+    <string name="Ad_Banner_ID">ca-app-pub-7640237869653935/7977303301</string>
+    <string name="Ad_Interstitial_ID">ca-app-pub-7640237869653935/7048678096</string>
+
+    <string name="Logo">Logo</string>
     <string name="sample">Sample</string>
     <string name="splash_image">Splash Image</string>
-    <string name="play">Play</string>
-    <string name="share">Share</string>
-    <string name="privacy_policy">Privacy Policy</string>
     <string name="icon">Icon</string>
     <string name="title">Title</string>
+    <string name="AddtoFavorites">Add to Favorites</string>
+    <string name="SetasRingtone">Set as Ringtone</string>
+    <string name="SetasNotification">Set as Notification</string>
+    <string name="RemovefromFavorites">Remove from Favorites</string>
+    <string name="Play">Play</string>
+    <string name="PrivacyPolicy">Privacy Policy</string>
+    <string name="Share">Share</string>
 </resources>

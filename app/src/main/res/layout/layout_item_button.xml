@@ -16,7 +16,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/logo_trans"
-        android:scaleType="centerInside"/>
+        android:scaleType="centerInside"
+        android:contentDescription="@string/Logo" />
 
     <TextView
         android:id="@+id/btnText"
@@ -28,7 +29,7 @@
         android:hapticFeedbackEnabled="true"
         android:text="@string/sample"
         android:textAllCaps="true"
-        android:textColor="@color/white"
+        android:textColor="@color/text"
         android:textSize="11sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

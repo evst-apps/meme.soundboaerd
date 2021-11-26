@@ -15,8 +15,11 @@ import com.google.android.flexbox.FlexboxLayout;
 @SuppressLint("InflateParams")
 public class FolderFragment extends Fragment {
 
-    public FolderFragment() {
+    private final MainActivity mainActivity;
+
+    public FolderFragment(MainActivity mainActivity) {
         super(R.layout.layout_fragment);
+        this.mainActivity = mainActivity;
     }
 
     @Override
@@ -26,14 +29,13 @@ public class FolderFragment extends Fragment {
         FlexboxLayout flexboxLayout = view.findViewById(R.id.flex);
         for (AssetItem assetItem : assetFolder.assetItems) {
             View btnView = getActivity().getLayoutInflater().inflate(R.layout.layout_item_button, null);
-            //btnView.setBackground(assetFolder.bgImage);
             TextView btnText = btnView.findViewById(R.id.btnText);
             ImageView btnIcon = btnView.findViewById(R.id.btnIcon);
             btnIcon.setImageBitmap(assetItem.tabIcon);
             btnText.setText(assetItem.name);
             btnView.setOnClickListener(view1 -> {
-                Player.Play(getActivity(), assetItem.filePath);
-                MainActivity.adManager.ShowAdd();
+                mainActivity.evstMediaPlayer.Play(assetItem.filePath);
+                mainActivity.adManager.StepCounter();
             });
             btnView.setOnLongClickListener(view12 -> {
                 new PopupDialog(getActivity(), assetItem).show();

@@ -1,6 +1,5 @@
 package com.evstapps.familysoundboard;
 
-import android.app.Activity;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -10,40 +9,35 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.RequestConfiguration;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class AdManager {
 
     private InterstitialAd mInterstitialAd;
     private int counter = 0;
-    private Activity activity;
+    private final MainActivity mainActivity;
 
-    public AdManager (Activity activity) {
-        this.activity = activity;
+    public AdManager (MainActivity mainActivity) {
+        this.mainActivity = mainActivity;
 
-        List<String> testDeviceIds = Arrays.asList("FE3DB78168856A22FE19B79204F3D59A");
+        List<String> testDeviceIds = Collections.singletonList("FE3DB78168856A22FE19B79204F3D59A");
         RequestConfiguration configuration =
                 new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
         MobileAds.setRequestConfiguration(configuration);
 
-        MobileAds.initialize(activity, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                AdView mAdView = activity.findViewById(R.id.adView);
-                mAdView.loadAd(getAdRequest());
-                LoadAd();
-            }
+        MobileAds.initialize(mainActivity, initializationStatus -> {
+            AdView mAdView = mainActivity.findViewById(R.id.adView);
+            mAdView.loadAd(getAdRequest());
+            LoadAd();
         });
     }
 
     public void LoadAd() {
-        InterstitialAd.load(activity, "ca-app-pub-7640237869653935/7048678096", getAdRequest(),
+        InterstitialAd.load(mainActivity, mainActivity.getResources().getString(R.string.Ad_Interstitial_ID), getAdRequest(),
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
@@ -62,12 +56,14 @@ public class AdManager {
                 });
     }
 
-    public void ShowAdd(){
-        if (counter < 5) {
-            counter++;
-        } else {
+    public void StepCounter(){
+        counter++;
+    }
+
+    public void ShowAdd(int minCount){
+        if (counter >= minCount) {
             if (mInterstitialAd != null) {
-                mInterstitialAd.show(activity);
+                mInterstitialAd.show(mainActivity);
                 LoadAd();
             } else {
                 Log.d("TAG", "The interstitial ad wasn't ready yet.");
@@ -75,6 +71,8 @@ public class AdManager {
             counter = 0;
         }
     }
+
+
 
     public AdRequest getAdRequest(){
         return new AdRequest.Builder().build();

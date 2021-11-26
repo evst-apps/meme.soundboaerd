@@ -1,10 +1,7 @@
 package com.evstapps.familysoundboard;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.view.View;
-
-import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 

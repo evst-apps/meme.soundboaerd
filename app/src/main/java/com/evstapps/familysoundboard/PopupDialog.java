@@ -8,16 +8,16 @@ import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-
 
 public class PopupDialog extends Dialog {
 
-    AssetItem assetItem;
+    private final AssetItem assetItem;
+    private final MainActivity mainActivity;
 
-    public PopupDialog(@NonNull Context context, AssetItem assetItem) {
+    public PopupDialog(Context context, AssetItem assetItem) {
         super(context);
         this.assetItem = assetItem;
+        mainActivity = (MainActivity) context;
     }
 
 
@@ -28,20 +28,20 @@ public class PopupDialog extends Dialog {
         setContentView(R.layout.layout_dialog);
         View faveBtn = findViewById(R.id.favBtn);
         TextView faveBtnText = faveBtn.findViewById(R.id.btnText);
-        faveBtnText.setText("Add to Favorites");
+        faveBtnText.setText(R.string.AddtoFavorites);
 
         View ringtoneBtn = findViewById(R.id.ringtoneBtn);
         TextView ringtoneBtnText = ringtoneBtn.findViewById(R.id.btnText);
-        ringtoneBtnText.setText("Set as Ringtone");
+        ringtoneBtnText.setText(R.string.SetasRingtone);
 
         View notificationBtn = findViewById(R.id.notificationBtn);
         TextView notificationBtnText = notificationBtn.findViewById(R.id.btnText);
-        notificationBtnText.setText("Set as Notification");
+        notificationBtnText.setText(R.string.SetasNotification);
 
         if (App.assetFolders.get(0).assetItems.contains(assetItem)){
-            faveBtnText.setText("Remove from Favorites");
+            faveBtnText.setText(R.string.RemovefromFavorites);
         } else {
-            faveBtnText.setText("Add to Favorites");
+            faveBtnText.setText(R.string.AddtoFavorites);
         }
         faveBtn.setOnClickListener(view -> {
             if (App.assetFolders.get(0).assetItems.contains(assetItem)){
@@ -49,16 +49,18 @@ public class PopupDialog extends Dialog {
             } else {
                 App.assetFolders.get(0).assetItems.add(assetItem);
             }
-            MainActivity.viewPager2.setAdapter(MainActivity.viewPager2.getAdapter());
+            mainActivity.viewPager2.setAdapter(mainActivity.viewPager2.getAdapter());
             App.saveFavorites();
             this.dismiss();
         });
         ringtoneBtn.setOnClickListener(view -> {
-            MainActivity.evstRingtoneManager.SetAsRingtoneOrNotification(assetItem.filePath, RingtoneManager.TYPE_RINGTONE);
+            mainActivity.evstRingtoneManager.SetAsRingtoneOrNotification(assetItem.filePath, RingtoneManager.TYPE_RINGTONE);
+            mainActivity.adManager.ShowAdd(0);
             this.dismiss();
         });
         notificationBtn.setOnClickListener(view -> {
-            MainActivity.evstRingtoneManager.SetAsRingtoneOrNotification(assetItem.filePath, RingtoneManager.TYPE_NOTIFICATION);
+            mainActivity.evstRingtoneManager.SetAsRingtoneOrNotification(assetItem.filePath, RingtoneManager.TYPE_NOTIFICATION);
+            mainActivity.adManager.ShowAdd(0);
             this.dismiss();
         });
     }

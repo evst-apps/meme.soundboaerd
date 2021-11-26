@@ -2,30 +2,24 @@ package com.evstapps.familysoundboard;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
-import android.content.Context;
 import android.graphics.BitmapFactory;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.AdapterStatus;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Map;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class App extends Application {
 
     public static ArrayList<AssetFolder> assetFolders;
@@ -116,7 +110,7 @@ public class App extends Application {
                 String l1 = reader.readLine();
                 String l2 = reader.readLine();
                 while (l1 != null && l2 != null) {
-                    App.assetFolders.get(0).assetItems.add(App.assetFolders.get(Integer.valueOf(l1)).assetItems.get(Integer.valueOf(l2)));
+                    App.assetFolders.get(0).assetItems.add(App.assetFolders.get(Integer.parseInt(l1)).assetItems.get(Integer.parseInt(l2)));
                     l1 = reader.readLine();
                     l2 = reader.readLine();
                 }

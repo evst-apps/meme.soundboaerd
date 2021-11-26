@@ -10,13 +10,13 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
+        android:theme="@style/Theme.EVSTApps"
         android:allowBackup="true"
         android:fullBackupOnly="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true"
         android:name=".App">
         <activity
@@ -37,7 +37,7 @@
         </activity>
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-7640237869653935~2916548316" />
+            android:value="@string/Ad_App_ID" />
     </application>
 
 </manifest>

@@ -3,5 +3,6 @@
     <issue id="IconLocation">
         <ignore path="src/main/res/drawable/logo_trans.png" />
         <ignore path="src/main/res/drawable/splash.png" />
+        <ignore path="src/main/res/drawable/star.png" />
     </issue>
 </lint>

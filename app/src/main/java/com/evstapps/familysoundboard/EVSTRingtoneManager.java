@@ -1,7 +1,6 @@
 package com.evstapps.familysoundboard;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.media.RingtoneManager;
@@ -20,16 +19,16 @@ import java.nio.channels.FileChannel;
 
 public class EVSTRingtoneManager {
 
-    private Context ctx;
+    private final MainActivity mainActivity;
 
-    EVSTRingtoneManager(Context ctx) {
-        this.ctx = ctx;
+    EVSTRingtoneManager(MainActivity mainActivity) {
+        this.mainActivity = mainActivity;
     }
 
     public void SetAsRingtoneOrNotification(String assetFilePath, int type) {
-        if (!Settings.System.canWrite(ctx)) {
+        if (!Settings.System.canWrite(mainActivity)) {
             Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
-            ctx.startActivity(intent);
+            mainActivity.startActivity(intent);
             return;
         }
         try {
@@ -39,7 +38,7 @@ public class EVSTRingtoneManager {
             } else {
                 externalFilePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_NOTIFICATIONS) + "/EVST_Notification.mp3";
             }
-            AssetFileDescriptor afd = ctx.getAssets().openFd(assetFilePath);
+            AssetFileDescriptor afd = mainActivity.getAssets().openFd(assetFilePath);
             FileChannel inChannel = afd.createInputStream().getChannel();
             FileChannel outChannel = new FileOutputStream(externalFilePath).getChannel();
             inChannel.transferTo(afd.getStartOffset(), afd.getLength(), outChannel);
@@ -63,24 +62,25 @@ public class EVSTRingtoneManager {
             }
 
             if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                Uri newUri = ctx.getContentResolver().insert(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, values);
-                OutputStream os = ctx.getContentResolver().openOutputStream(newUri);
+                Uri newUri = mainActivity.getContentResolver().insert(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, values);
+                OutputStream os = mainActivity.getContentResolver().openOutputStream(newUri);
                 int size = (int) externalFile.length();
                 byte[] bytes = new byte[size];
                 BufferedInputStream buf = new BufferedInputStream(new FileInputStream(externalFile));
+                //noinspection ResultOfMethodCallIgnored
                 buf.read(bytes, 0, bytes.length);
                 buf.close();
                 os.write(bytes);
                 os.close();
                 os.flush();
-                RingtoneManager.setActualDefaultRingtoneUri(ctx, type, newUri);
+                RingtoneManager.setActualDefaultRingtoneUri(mainActivity, type, newUri);
             } else {
                 values.put(MediaStore.MediaColumns.DATA, externalFile.getAbsolutePath());
                 Uri uri = MediaStore.Audio.Media.getContentUriForPath(externalFile.getAbsolutePath());
-                ctx.getContentResolver().delete(uri, MediaStore.MediaColumns.DATA + "=\"" + externalFile.getAbsolutePath() + "\"", null);
-                Uri newUri = ctx.getContentResolver().insert(uri, values);
-                RingtoneManager.setActualDefaultRingtoneUri(ctx, type, newUri);
-                ctx.getContentResolver().insert(MediaStore.Audio.Media.getContentUriForPath(externalFile.getAbsolutePath()), values);
+                mainActivity.getContentResolver().delete(uri, MediaStore.MediaColumns.DATA + "=\"" + externalFile.getAbsolutePath() + "\"", null);
+                Uri newUri = mainActivity.getContentResolver().insert(uri, values);
+                RingtoneManager.setActualDefaultRingtoneUri(mainActivity, type, newUri);
+                mainActivity.getContentResolver().insert(MediaStore.Audio.Media.getContentUriForPath(externalFile.getAbsolutePath()), values);
             }
         } catch (Exception e) {
             e.printStackTrace();

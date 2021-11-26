@@ -1,6 +1,6 @@
 <ripple
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/black">
+    android:color="@color/btn_ripple">
     <item
         android:bottom="5dp"
         android:top="5dp"
@@ -15,9 +15,9 @@
             </corners>
             <stroke
                 android:width="3dp"
-                android:color="@color/black"
+                android:color="@color/btn_stroke"
                 />
-            <solid android:color="@color/blue2" />
+            <solid android:color="@color/btn_fill" />
         </shape>
     </item>
 </ripple>
