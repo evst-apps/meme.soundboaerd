@@ -20,13 +20,13 @@ public class AdManager {
     private InterstitialAd mInterstitialAd;
     private int counter = 0;
     private final MainActivity mainActivity;
+    private AdView mAdView;
 
     public AdManager (MainActivity mainActivity) {
         this.mainActivity = mainActivity;
 
         MobileAds.initialize(mainActivity, initializationStatus -> {
-            AdView mAdView = mainActivity.findViewById(R.id.adView);
-            mAdView.loadAd(getAdRequest());
+            mAdView = mainActivity.findViewById(R.id.adView);
             LoadAd();
         });
     }
@@ -49,6 +49,7 @@ public class AdManager {
                         mInterstitialAd = null;
                     }
                 });
+        mAdView.loadAd(getAdRequest());
     }
 
     public void StepCounter(){
