@@ -9,8 +9,8 @@ android {
         applicationId 'com.evstapps.familysoundboard'
         minSdk 23
         targetSdk 31
-        versionCode 27112021
-        versionName "2.0.0"
+        versionCode 30112021
+        versionName "2.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
