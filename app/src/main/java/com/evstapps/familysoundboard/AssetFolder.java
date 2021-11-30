@@ -5,7 +5,6 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-@SuppressWarnings("unused")
 public class AssetFolder implements Comparable<AssetFolder>{
     public String name;
     public String tabName;

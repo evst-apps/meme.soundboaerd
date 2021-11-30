@@ -15,16 +15,14 @@ import com.google.android.flexbox.FlexboxLayout;
 @SuppressLint("InflateParams")
 public class FolderFragment extends Fragment {
 
-    private final MainActivity mainActivity;
-
-    public FolderFragment(MainActivity mainActivity) {
+    public FolderFragment() {
         super(R.layout.layout_fragment);
-        this.mainActivity = mainActivity;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         assert this.getArguments() != null;
+        MainActivity mainActivity = (MainActivity) getActivity();
         AssetFolder assetFolder = App.assetFolders.get(this.getArguments().getInt("position"));
         FlexboxLayout flexboxLayout = view.findViewById(R.id.flex);
         for (AssetItem assetItem : assetFolder.assetItems) {

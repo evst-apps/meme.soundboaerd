@@ -4,21 +4,24 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.adapter.FragmentViewHolder;
+
+import java.util.List;
 
 public class ViewPager2Adapter extends FragmentStateAdapter {
 
-    private final MainActivity mainActivity;
 
     public ViewPager2Adapter(MainActivity mainActivity) {
         super(mainActivity);
-        this.mainActivity = mainActivity;
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        FolderFragment folderFragment = new FolderFragment(mainActivity);
+        FolderFragment folderFragment = new FolderFragment();
         Bundle bundle = new Bundle();
         bundle.putInt("position", position);
         folderFragment.setArguments(bundle);
@@ -28,11 +31,6 @@ public class ViewPager2Adapter extends FragmentStateAdapter {
     @Override
     public int getItemCount() {
         return App.assetFolders.size();
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return App.assetFolders.get(position).name.hashCode();
     }
 
 }

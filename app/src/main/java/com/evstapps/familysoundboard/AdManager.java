@@ -24,11 +24,6 @@ public class AdManager {
     public AdManager (MainActivity mainActivity) {
         this.mainActivity = mainActivity;
 
-        List<String> testDeviceIds = Collections.singletonList("FE3DB78168856A22FE19B79204F3D59A");
-        RequestConfiguration configuration =
-                new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
-        MobileAds.setRequestConfiguration(configuration);
-
         MobileAds.initialize(mainActivity, initializationStatus -> {
             AdView mAdView = mainActivity.findViewById(R.id.adView);
             mAdView.loadAd(getAdRequest());
