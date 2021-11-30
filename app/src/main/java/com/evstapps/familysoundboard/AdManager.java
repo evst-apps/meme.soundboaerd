@@ -8,12 +8,8 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
-
-import java.util.Collections;
-import java.util.List;
 
 public class AdManager {
 
@@ -60,11 +56,11 @@ public class AdManager {
         if (counter >= minCount) {
             if (mInterstitialAd != null) {
                 mInterstitialAd.show(mainActivity);
-                LoadAd();
+                counter = 0;
             } else {
                 Log.d("TAG", "The interstitial ad wasn't ready yet.");
             }
-            counter = 0;
+            LoadAd();
         }
     }
 

@@ -4,15 +4,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.adapter.FragmentViewHolder;
-
-import java.util.List;
 
 public class ViewPager2Adapter extends FragmentStateAdapter {
-
 
     public ViewPager2Adapter(MainActivity mainActivity) {
         super(mainActivity);
