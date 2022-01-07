@@ -6,7 +6,7 @@
 
     <ImageView
         android:id="@+id/tabImage"
-        android:layout_width="72dp"
+        android:layout_width="80dp"
         android:layout_height="50dp"
         android:contentDescription="@string/icon"
         android:scaleType="centerInside" />
