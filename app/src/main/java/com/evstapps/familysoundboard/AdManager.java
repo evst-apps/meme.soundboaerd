@@ -23,6 +23,7 @@ public class AdManager {
 
         MobileAds.initialize(mainActivity, initializationStatus -> {
             mAdView = mainActivity.findViewById(R.id.adView);
+            mAdView.loadAd(getAdRequest());
             LoadAd();
         });
     }
@@ -45,7 +46,6 @@ public class AdManager {
                         mInterstitialAd = null;
                     }
                 });
-        mAdView.loadAd(getAdRequest());
     }
 
     public void StepCounter(){

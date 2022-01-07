@@ -9,8 +9,8 @@ android {
         applicationId 'com.evstapps.familysoundboard'
         minSdk 23
         targetSdk 31
-        versionCode 30112021
-        versionName "2.0.1"
+        versionCode 202201070
+        versionName "2.0.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -43,7 +43,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.unity3d.ads:unity-ads:3.7.5'
-    implementation 'com.google.ads.mediation:unity:3.7.5.0'
+    implementation 'com.google.ads.mediation:unity:4.0.0.0'
 
     implementation 'com.google.android.gms:play-services-ads:20.5.0'
 
