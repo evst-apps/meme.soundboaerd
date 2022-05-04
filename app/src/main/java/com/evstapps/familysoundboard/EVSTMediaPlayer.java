@@ -11,7 +11,7 @@ public class EVSTMediaPlayer extends MediaPlayer {
 
     EVSTMediaPlayer (MainActivity mainActivity){
         this.mainActivity = mainActivity;
-        setOnCompletionListener(mediaPlayer -> mainActivity.adManager.ShowAdd(5));
+        setOnCompletionListener(mediaPlayer -> mainActivity.adManager.ShowAdd(8));
     }
 
 
