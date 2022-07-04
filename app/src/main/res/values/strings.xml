@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Simpsons Soundboard</string>
-    <string name="Ad_App_ID">ca-app-pub-7640237869653935~2916548316</string>
-    <string name="Ad_Banner_ID">ca-app-pub-7640237869653935/7977303301</string>
-    <string name="Ad_Interstitial_ID">ca-app-pub-7640237869653935/7048678096</string>
+    <string name="Ad_App_ID">ca-app-pub-7640237869653935~3919384273</string>
+    <string name="Ad_Banner_ID">ca-app-pub-7640237869653935/3727812588</string>
+    <string name="Ad_Interstitial_ID">ca-app-pub-7640237869653935/6162404239</string>
 
     <string name="Logo">Logo</string>
     <string name="sample">Sample</string>
