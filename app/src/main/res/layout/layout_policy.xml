@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".Policy">
 
+    <!--suppress AndroidUnresolvableTag, AndroidElementNotAllowed -->
     <WebView
-        android:id="@+id/web"
+        android:id="@+id/webView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

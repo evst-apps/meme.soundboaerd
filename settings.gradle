@@ -1,2 +1,2 @@
-rootProject.name = "Family Soundboard"
+rootProject.name = "Simpsons Soundboard"
 include ':app'

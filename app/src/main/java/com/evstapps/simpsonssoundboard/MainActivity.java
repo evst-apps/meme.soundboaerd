@@ -1,4 +1,4 @@
-package com.evstapps.familysoundboard;
+package com.evstapps.simpsonssoundboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;

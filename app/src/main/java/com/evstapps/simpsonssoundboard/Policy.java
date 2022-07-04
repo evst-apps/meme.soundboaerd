@@ -1,4 +1,4 @@
-package com.evstapps.familysoundboard;
+package com.evstapps.simpsonssoundboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,7 +18,7 @@ public class Policy extends AppCompatActivity {
         //noinspection ConstantConditions
         getSupportActionBar().hide();
         setContentView(R.layout.layout_policy);
-        WebView wv = findViewById(R.id.web);
+        WebView wv = findViewById(R.id.webView);
         WebSettings webSettings = wv.getSettings();
         webSettings.setJavaScriptEnabled(true);
         wv.loadUrl("http://evstapps.com/privacy");
