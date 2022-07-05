@@ -22,29 +22,13 @@
         app:srcCompat="@drawable/logo_trans"
         tools:ignore="ImageContrastCheck" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="267dp"
-        android:layout_height="228dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:contentDescription="@string/splash_image"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"
-        app:srcCompat="@drawable/right"
-        tools:ignore="ImageContrastCheck" />
-
     <include
         android:id="@+id/playBtn"
         layout="@layout/layout_splash_button"
         android:layout_width="150dp"
         android:layout_height="70dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -53,8 +37,8 @@
         layout="@layout/layout_splash_button"
         android:layout_width="150dp"
         android:layout_height="70dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -63,7 +47,6 @@
         layout="@layout/layout_splash_button"
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

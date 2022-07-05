@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.evstapps.simpsonssoundboard">
+    package="com.evstapps.memesoundboard">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -18,17 +18,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
-        android:name="com.evstapps.simpsonssoundboard.App">
+        android:name="com.evstapps.memesoundboard.App">
         <activity
-            android:name="com.evstapps.simpsonssoundboard.MainActivity"
+            android:name="com.evstapps.memesoundboard.MainActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name="com.evstapps.simpsonssoundboard.Policy"
+            android:name="com.evstapps.memesoundboard.Policy"
             android:exported="true" >
         </activity>
         <activity
-            android:name="com.evstapps.simpsonssoundboard.Splash"
+            android:name="com.evstapps.memesoundboard.Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
