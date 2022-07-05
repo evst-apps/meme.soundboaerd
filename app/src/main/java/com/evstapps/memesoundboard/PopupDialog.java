@@ -1,4 +1,4 @@
-package com.evstapps.simpsonssoundboard;
+package com.evstapps.memesoundboard;
 
 import android.app.Dialog;
 import android.content.Context;

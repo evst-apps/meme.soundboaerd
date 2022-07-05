@@ -1,4 +1,4 @@
-package com.evstapps.simpsonssoundboard;
+package com.evstapps.memesoundboard;
 
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;

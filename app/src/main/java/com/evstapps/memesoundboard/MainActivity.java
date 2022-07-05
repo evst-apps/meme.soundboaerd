@@ -1,4 +1,4 @@
-package com.evstapps.simpsonssoundboard;
+package com.evstapps.memesoundboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
