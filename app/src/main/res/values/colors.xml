@@ -2,8 +2,8 @@
 <resources>
     <color name="btn_ripple">#FF000000</color>
     <color name="btn_stroke">#FF000000</color>
-    <color name="btn_fill">#FFFFFF</color>
-    <color name="gradient_start">#FFFFFF</color>
-    <color name="gradient_end">#8BC34A</color>
+    <color name="btn_fill">#008AFF</color>
+    <color name="gradient_start">#8AFF00</color>
+    <color name="gradient_end">#FF008A</color>
     <color name="text">#FF000000</color>
 </resources>
