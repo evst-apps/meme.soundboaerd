@@ -28,6 +28,10 @@
             android:exported="true" >
         </activity>
         <activity
+            android:name="com.evstapps.memesoundboard.More"
+            android:exported="true" >
+        </activity>
+        <activity
             android:name="com.evstapps.memesoundboard.Splash"
             android:exported="true">
             <intent-filter>

@@ -34,6 +34,14 @@ public class Splash extends AppCompatActivity {
             startActivity(i);
         });
 
+        View moreBtn = findViewById(R.id.moreBtn);
+        TextView moreBtnText = moreBtn.findViewById(R.id.btnText);
+        moreBtnText.setText(R.string.moreBtn);
+        moreBtn.setOnClickListener(view -> {
+            Intent i = new Intent(Splash.this, More.class);
+            startActivity(i);
+        });
+
         View shareBtn = findViewById(R.id.shareBtn);
         TextView shareBtnText = shareBtn.findViewById(R.id.btnText);
         shareBtnText.setText(R.string.Share);
