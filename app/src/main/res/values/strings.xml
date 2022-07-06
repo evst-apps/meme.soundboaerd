@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Meme Soundboard</string>
-    <string name="Ad_App_ID">ca-app-pub-7640237869653935~3919384273</string>
-    <string name="Ad_Banner_ID">ca-app-pub-7640237869653935/3727812588</string>
-    <string name="Ad_Interstitial_ID">ca-app-pub-7640237869653935/6162404239</string>
+    <string name="Ad_App_ID">ca-app-pub-7640237869653935~7423051998</string>
+    <string name="Ad_Banner_ID">ca-app-pub-7640237869653935/8544561978</string>
+    <string name="Ad_Interstitial_ID">ca-app-pub-7640237869653935/7207429578</string>
 
     <string name="Logo">Logo</string>
     <string name="sample">Sample</string>
