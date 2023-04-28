@@ -25,7 +25,6 @@ public class App extends Application {
     public static ArrayList<AssetFolder> assetFolders;
     private static File filesDir;
 
-    @SuppressLint("InflateParams")
     @Override
     public void onCreate() {
         super.onCreate();
@@ -37,7 +36,7 @@ public class App extends Application {
         assetFolderF.assetItems = new ArrayList<>();
 
         assetFolderF.tabIcon = BitmapFactory.decodeResource(getResources(), R.drawable.star);
-        View tabViewF = LayoutInflater.from(this).inflate(R.layout.layout_tab, null);
+        @SuppressLint("InflateParams") View tabViewF = LayoutInflater.from(this).inflate(R.layout.layout_tab, null);
         TextView tabTextF = tabViewF.findViewById(R.id.tabText);
         ImageView tabIconF = tabViewF.findViewById(R.id.tabImage);
         tabTextF.setText(assetFolderF.name);
@@ -54,7 +53,7 @@ public class App extends Application {
 
                 InputStream icon_is = getAssets().open("Tabs/" + tabName + "/" + "icon.png");
                 assetFolder.tabIcon = BitmapFactory.decodeStream(icon_is);
-                View tabView = LayoutInflater.from(this).inflate(R.layout.layout_tab, null);
+                @SuppressLint("InflateParams") View tabView = LayoutInflater.from(this).inflate(R.layout.layout_tab, null);
                 TextView tabText = tabView.findViewById(R.id.tabText);
                 ImageView tabIcon = tabView.findViewById(R.id.tabImage);
                 tabText.setText(assetFolder.name);
@@ -110,7 +109,14 @@ public class App extends Application {
                 String l1 = reader.readLine();
                 String l2 = reader.readLine();
                 while (l1 != null && l2 != null) {
-                    App.assetFolders.get(0).assetItems.add(App.assetFolders.get(Integer.parseInt(l1)).assetItems.get(Integer.parseInt(l2)));
+                    AssetItem assetItem1 = App.assetFolders.get(Integer.parseInt(l1)).assetItems.get(Integer.parseInt(l2));
+                    AssetItem assetItem2 = new AssetItem();
+                    assetItem2.name = assetItem1.name;
+                    assetItem2.filePath = assetItem1.filePath;
+                    assetItem2.tabIcon = assetItem1.tabIcon;
+                    assetItem2.tabPos = assetItem1.tabPos;
+                    assetItem2.itemPos = assetItem1.itemPos;
+                    App.assetFolders.get(0).assetItems.add(assetItem2);
                     l1 = reader.readLine();
                     l2 = reader.readLine();
                 }

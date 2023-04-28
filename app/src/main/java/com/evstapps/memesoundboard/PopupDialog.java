@@ -55,12 +55,10 @@ public class PopupDialog extends Dialog {
         });
         ringtoneBtn.setOnClickListener(view -> {
             mainActivity.evstRingtoneManager.SetAsRingtoneOrNotification(assetItem.filePath, RingtoneManager.TYPE_RINGTONE);
-            mainActivity.adManager.ShowAdd(0);
             this.dismiss();
         });
         notificationBtn.setOnClickListener(view -> {
             mainActivity.evstRingtoneManager.SetAsRingtoneOrNotification(assetItem.filePath, RingtoneManager.TYPE_NOTIFICATION);
-            mainActivity.adManager.ShowAdd(0);
             this.dismiss();
         });
     }

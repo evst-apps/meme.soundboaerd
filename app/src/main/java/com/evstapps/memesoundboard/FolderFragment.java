@@ -14,7 +14,6 @@ import com.google.android.flexbox.FlexboxLayout;
 @SuppressWarnings("ConstantConditions")
 @SuppressLint("InflateParams")
 public class FolderFragment extends Fragment {
-
     public FolderFragment() {
         super(R.layout.layout_fragment);
     }
@@ -26,20 +25,17 @@ public class FolderFragment extends Fragment {
         AssetFolder assetFolder = App.assetFolders.get(this.getArguments().getInt("position"));
         FlexboxLayout flexboxLayout = view.findViewById(R.id.flex);
         for (AssetItem assetItem : assetFolder.assetItems) {
-            View btnView = getActivity().getLayoutInflater().inflate(R.layout.layout_item_button, null);
-            TextView btnText = btnView.findViewById(R.id.btnText);
-            ImageView btnIcon = btnView.findViewById(R.id.btnIcon);
+            assetItem.view = getActivity().getLayoutInflater().inflate(R.layout.layout_item_button, null);
+            TextView btnText = assetItem.view.findViewById(R.id.btnText);
+            ImageView btnIcon = assetItem.view.findViewById(R.id.btnIcon);
             btnIcon.setImageBitmap(assetItem.tabIcon);
             btnText.setText(assetItem.name);
-            btnView.setOnClickListener(view1 -> {
-                mainActivity.evstMediaPlayer.Play(assetItem.filePath);
-                mainActivity.adManager.StepCounter();
-            });
-            btnView.setOnLongClickListener(view12 -> {
+            assetItem.view.setOnClickListener(view1 -> mainActivity.evstMediaPlayer.Play(assetItem));
+            assetItem.view.setOnLongClickListener(view12 -> {
                 new PopupDialog(getActivity(), assetItem).show();
                 return false;
             });
-            flexboxLayout.addView(btnView);
+            flexboxLayout.addView(assetItem.view);
         }
     }
 

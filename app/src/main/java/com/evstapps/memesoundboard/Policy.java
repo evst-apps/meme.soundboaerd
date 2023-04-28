@@ -14,9 +14,7 @@ public class Policy extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //noinspection ConstantConditions
-        getSupportActionBar().hide();
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.layout_policy);
         WebView wv = findViewById(R.id.webView);
         WebSettings webSettings = wv.getSettings();
