@@ -9,8 +9,8 @@ android {
         applicationId 'com.evstapps.memesoundboard'
         minSdk 23
         targetSdk 33
-        versionCode 202208010
-        versionName "2.1.0"
+        versionCode 202304280
+        versionName "3.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
